@@ -21,6 +21,15 @@
     "jsx": "react-jsx"
   },
   "include": [
-    "src"
-  ]
+    "src",
+    "type.d.ts"
+  ],
+  "ts-node": {
+    "files": true
+  },
+  "types": [
+    "node",
+    "mocha",
+    "chai"
+  ],
 }

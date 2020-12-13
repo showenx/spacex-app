@@ -1,7 +1,9 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+- The application should simply present a table of data from a simple data source 
+- The application should save the state of the table using Redux
+- The application should allow the user ***update*** a cell within the table
+- The application should persist the changed state to Redux
 ## Available Scripts
 
 In the project directory, you can run:
@@ -14,10 +16,84 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
+![image info](./docs/screen.png)
+
 ### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+Debugger attached.
+yarn run v1.16.0
+$ env TS_NODE_COMPILER_OPTIONS='{"module": "commonjs" }' nyc --reporter=text mocha
+Debugger attached.
+Debugger attached.
+
+
+  Spacex capsule catalog state management tests
+state {
+  capsules: [
+    {
+      capsule_serial: 'C101',
+      capsule_id: 'dragon1',
+      status: 'retired',
+      original_launch: '2010-12-08T15:43:00.000Z',
+      original_launch_unix: 1291822980,
+      landings: 1,
+      type: 'Dragon 1.0',
+      details: 'Reentered after three weeks in orbit',
+      reuse_count: 0
+    }
+  ]
+}
+    ✓ Update 1st item 'detail' field
+state {
+  capsules: [
+    {
+      capsule_serial: 'C101',
+      capsule_id: 'dragon1',
+      status: 'retired',
+      original_launch: '2010-12-08T15:43:00.000Z',
+      original_launch_unix: 1291822980,
+      landings: 1,
+      type: 'Dragon 1.0',
+      details: 'Reentered after three weeks in orbit',
+      reuse_count: 0
+    }
+  ]
+}
+    ✓ Update 1st item 'type' field
+state {
+  capsules: [
+    {
+      capsule_serial: 'C101',
+      capsule_id: 'dragon1',
+      status: 'retired',
+      original_launch: '2010-12-08T15:43:00.000Z',
+      original_launch_unix: 1291822980,
+      landings: 1,
+      type: 'Dragon 1.0',
+      details: 'Reentered after three weeks in orbit',
+      reuse_count: 0
+    }
+  ]
+}
+    ✓ Update 1st item 'status' field
+
+
+  3 passing (235ms)
+
+Waiting for the debugger to disconnect...
+-------------|---------|----------|---------|---------|-------------------
+File         | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-------------|---------|----------|---------|---------|-------------------
+All files    |      90 |       50 |     100 |      90 |                   
+ actions.ts  |     100 |      100 |     100 |     100 |                   
+ reducers.ts |    87.5 |       50 |     100 |    87.5 | 98-103            
+ types.ts    |     100 |      100 |     100 |     100 |                   
+-------------|---------|----------|---------|---------|-------------------
+Waiting for the debugger to disconnect...
+✨  Done in 3.43s.
+Waiting for the debugger to disconnect...
+```
 
 ### `yarn build`
 
@@ -28,19 +104,3 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).

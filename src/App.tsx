@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
+import { useSelector, shallowEqual } from "react-redux";
+
+import { updateCellAction } from "./store/actions";
+import spacex from "./spacex.svg";
+import "./App.css";
+import { CapsuleCatalog } from "./components/capsule-catalog";
+
+const App: React.FC = () => {
+  const capsules: readonly ICapsule[] = useSelector(
+    (state: CapsuleState) => state.capsules,
+    shallowEqual
+  );
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <img src={spacex} className="App-logo" alt="logo" />
+
+        {capsules.map((capsule: ICapsule) => (
+          <CapsuleCatalog
+            key={capsule.capsule_serial}
+            capsule={capsule}
+            updateCell={updateCellAction}
+          />
+        ))}
       </header>
     </div>
   );
-}
+};
 
 export default App;

@@ -1,9 +1,15 @@
 
-
+## Task 1
 - The application should simply present a table of data from a simple data source 
 - The application should save the state of the table using Redux
-- The application should allow the user ***update*** a cell within the table
+- The application should allow the user ***to update***? a cell within the table
 - The application should persist the changed state to Redux
+
+## Task 2
+- Use mocha and chai to create a BDD/TDD approach to unit testing Task 1 
+- The unit test should demonstrate code coverage of Task 1
+- Demonstrate how the unit test could be automated as part of a CI/CD pipeline.
+
 ## Available Scripts
 
 In the project directory, you can run:

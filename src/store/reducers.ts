@@ -79,14 +79,14 @@ const catalogReducer = (
     case UPDATE_CELL:
       console.log("state", state);
 
-      const index = state.capsules.findIndex(
-        capsule => capsule.capsule_serial === action.payload.key
-      );
+      // const index = state.capsules.findIndex(
+      //   capsule => capsule.capsule_serial === action.payload.key
+      // );
 
       return {
         ...state,
         capsules: state.capsules.map((capsule, i) => {
-          if (i === index) {
+          if (capsule.capsule_serial === action.payload.key) {
             const changedCell: IDynamicObject = {};
             changedCell[action.payload.fieldName] = action.payload.fieldValue;
 

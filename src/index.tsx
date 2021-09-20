@@ -2,17 +2,16 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 
-import { createStore, applyMiddleware, Store } from "redux";
+import { Store } from "redux";
 import { Provider } from "react-redux";
-import thunk from "redux-thunk";
 
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import catalogReducer from "./store/reducers";
+import { configureStore } from "./configStore";
 
 const store: Store<CapsuleState, CapsuleAction> & {
   dispatch: DispatchType;
-} = createStore(catalogReducer, applyMiddleware(thunk));
+} = configureStore();
 
 ReactDOM.render(
   <React.StrictMode>
